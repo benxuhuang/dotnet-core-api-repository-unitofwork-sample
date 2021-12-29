@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MyMusic.Core.Models {
     public class Artist {
