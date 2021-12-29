@@ -3,8 +3,7 @@ using MyMusic.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-// var provider = builder.Services.BuildServiceProvider();
-// var configuration = provider.GetService<IConfiguration>();
+
 var connStr = builder.Configuration.GetValue<string>("ConnectionStrings:Default");
 
 builder.Services.AddDbContext<MyMusicDbContext>(options =>
