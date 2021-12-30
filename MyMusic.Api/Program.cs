@@ -13,9 +13,13 @@ builder.Services.AddDbContext<MyMusicDbContext>(options =>
   x => x.MigrationsAssembly("MyMusic.Data")));
 
 // Configure Dependency injection
+// Transient — Objects are different. One new instance is provided to
+// every controller and every service
+// Scoped — Objects are same through the request
+// Singleton — Objects are the same for every request during the application lifetime
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IMusicService, MusicService>();
-builder.Services.AddScoped<IArtistService, ArtistService>();
+builder.Services.AddTransient<IMusicService, MusicService>();
+builder.Services.AddTransient<IArtistService, ArtistService>();
 
 // Add AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
